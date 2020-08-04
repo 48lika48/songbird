@@ -11,7 +11,19 @@ class Question extends React.Component {
         </div>
         <div className='question-voice'>
           <div className='question-name'>Name</div>
-          <div className='question-sound'>Sound</div>
+          <div className='question-controls'>
+            <div className='playback-button'>
+              <span className='triangle-button'>⯈</span>
+            </div>
+            <div className='question-time-bar'>
+              <div className='time-bar-bar'></div>
+              <div className='time-bar-circle'></div>
+              <div className='time-bar-info'>
+                <div className='start'>00:00</div>
+                <div className='finish'>00:48</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

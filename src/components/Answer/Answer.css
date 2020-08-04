@@ -1,7 +1,7 @@
 .answer {
     display: flex;
     justify-content: space-between;
-    height: 230px;
+    height: 297px;
     margin: 20px 10% 10px 10%;
 }
 
@@ -13,9 +13,10 @@
 }
 
 .example {
-    height: 27px;
+    height: 38px;
     font-size: 16px;
-    padding: 5px 10px;
+    padding: 5px 15px;
+    cursor: pointer;
 }
 
 .example:not(:first-child) {
@@ -25,7 +26,7 @@
 }
 
 .dots {
-    font-size: 20px;
+    font-size: 24px;
     color: #808080;
     margin-right: 10px;
 }
@@ -43,13 +44,13 @@
 
 .answer-picture {
     width: 200px;
-    height: 110px;
+    height: 140px;
     padding: 20px 20px 10px 20px;
 }
 
 .answer-bird {
     width: 180px;
-    height: 110px;
+    height: 130px;
     border: none;
     border-radius: 10px;
 }
@@ -78,10 +79,65 @@
     padding: 5px 0;
 }
 
-.answer-sound {
+.answer-controls {
     height: 50px;
 }
 
+.answer-controls, .playback-button {
+    display: flex;
+    align-items: center;
+}
+
+.answer-time-bar {
+    position: relative;
+    height: 4px;
+    flex: 1 1;
+    margin-top: 33px;
+}
+
+.playback-button {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00bc8c;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 30px 20px 0 0;
+    cursor: pointer;
+}
+
+.triangle-button {
+    font-size: 30px;
+    font-weight: bold;
+    color: #00bc8c;
+}
+
+.time-bar-bar {
+    background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 0%, rgb(115, 115, 115) 0%, rgb(115, 115, 115) 100%);
+    height: 4px;
+}
+
+.time-bar-circle {
+    left: 0%;
+    background-color: grey;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    transform: translate(-50%,calc(-50% + 2px));
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+.time-bar-info {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #d3d3d3;
+    display: flex;
+    justify-content: space-between;
+}
+
 .answer-about {
+    font-size: 14px;
     padding: 0 20px;
 }

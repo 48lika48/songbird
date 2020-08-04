@@ -29,6 +29,7 @@
 
 .category span {
     padding-top: 8px;
+    cursor: pointer;
 }
 
 .active {
