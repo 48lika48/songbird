@@ -1,7 +1,40 @@
 .question {
+    display: flex;
     height: 150px;
-    margin: 10px 5%;
+    margin: 10px 10%;
     background-color:  #303030;
     border: none;
     border-radius: 5px;
+}
+
+.question-picture {
+    width: 200px;
+    height: 110px;
+    padding: 20px;
+}
+
+.question-bird {
+    width: 180px;
+    height: 110px;
+    border: none;
+    border-radius: 10px;
+}
+
+.question-voice {
+    width: 80%;
+    padding: 10px 40px 20px 15px;
+}
+
+.question-name {
+    height: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #808080;
+    padding-bottom: 5px;
+}
+
+.question-sound {
+    height: 65px;
 }

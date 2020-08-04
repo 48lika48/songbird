@@ -2,19 +2,86 @@
     display: flex;
     justify-content: space-between;
     height: 230px;
-    margin: 20px 5% 10px 5%;
+    margin: 20px 10% 10px 10%;
 }
 
 .choice {
     width: 49%;
     background-color:  #303030;
-    border: none;
+    border: 1px solid #808080;
     border-radius: 5px;
+}
+
+.example {
+    height: 27px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.example:not(:first-child) {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #808080;
+}
+
+.dots {
+    font-size: 20px;
+    color: #808080;
+    margin-right: 10px;
 }
 
 .information {
     width: 49%;
     background-color:  #303030;
-    border: none;
+    border: 1px solid grey;
     border-radius: 5px;
+}
+
+.information-wrapper {
+    display: flex;
+}
+
+.answer-picture {
+    width: 200px;
+    height: 110px;
+    padding: 20px 20px 10px 20px;
+}
+
+.answer-bird {
+    width: 180px;
+    height: 110px;
+    border: none;
+    border-radius: 10px;
+}
+
+.answer-voice {
+    width: 80%;
+    padding: 10px 40px 0 15px;
+}
+
+.answer-name {
+    height: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #808080;
+    padding: 5px 0;
+}
+
+.latin-name {
+    height: 20px;
+    font-size: 16px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #808080;
+    padding: 5px 0;
+}
+
+.answer-sound {
+    height: 50px;
+}
+
+.answer-about {
+    padding: 0 20px;
 }
