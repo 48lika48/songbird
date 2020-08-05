@@ -1,8 +1,20 @@
 import React from 'react';
 import './Question.css';
 import bird from '../../assets/bird.jpg';
+import birdsData from '../../constants/birdsData.js';
+
+
 
 class Question extends React.Component {
+  
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     counter: 0
+  //   };
+  // }
+
   render() {
     return (
       <div className='question'>

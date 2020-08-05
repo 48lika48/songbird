@@ -3,12 +3,21 @@ import './Header.css';
 import logo from '../../assets/logo.svg';
 
 class Header extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      counter: 0
+    };
+  }
+
   render() {
     return (
       <div className='header'>
         <div className='logo-score'>
           <img className='logo' src={logo} alt='logo'/>
-          <div className='score'>Score: 0</div>
+          <div className='score'>Score: {this.state.counter}</div>
         </div>
         <div className='category'>
           <span>Разминка</span>
