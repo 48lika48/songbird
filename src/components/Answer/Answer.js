@@ -10,46 +10,65 @@ class Answer extends React.Component {
 
     this.state = {
       counter: 0,
-      category: 0
+      category: 0,
+      showInfo: false
     };
   }
 
+  changeStateShowInfo = () => {
+    this.setState((state) => ({
+      showInfo: true
+    }));
+  };
+
+
+
   render() {
-    return (
-      <div className='answer'>
-        <div className='choice'>
-          <div className='example'><span className='dots'>●</span>Name</div>
-          <div className='example'><span className='dots'>●</span>Name</div>
-          <div className='example'><span className='dots'>●</span>Name</div>
-          <div className='example'><span className='dots'>●</span>Name</div>
-          <div className='example'><span className='dots'>●</span>Name</div>
-          <div className='example'><span className='dots'>●</span>Name</div>
-        </div>
-        <div className='information'>
-          <div className='information-wrapper'>
-            <div className='answer-picture'>
-              <img className='answer-bird' src={birdsData[this.state.category][0].image} alt='bird'/>
-            </div>
-            <div className='answer-voice'>
-              <div className='answer-name'>{birdsData[this.state.category][0].name}</div>
-              <div className='latin-name'>{birdsData[this.state.category][0].species}</div>
-              <div className='answer-controls'>
-                <div className='playback-button'>
-                  <span className='triangle-button'>⯈</span>
-                </div>
-                <div className='answer-time-bar'>
-                  <div className='time-bar-bar'></div>
-                  <div className='time-bar-circle'></div>
-                  <div className='time-bar-info'>
-                    <div className='start'>00:00</div>
-                    <div className='finish'>00:48</div>
-                  </div>
+    let info;
+    if(this.state.showInfo === true) {
+      info = 
+      <div className='information'>
+        <div className='information-wrapper'>
+          <div className='answer-picture'>
+            <img className='answer-bird' src={birdsData[this.state.category][0].image} alt='bird'/>
+          </div>
+          <div className='answer-voice'>
+            <div className='answer-name'>{birdsData[this.state.category][0].name}</div>
+            <div className='latin-name'>{birdsData[this.state.category][0].species}</div>
+            <div className='answer-controls'>
+              <div className='playback-button'>
+                <span className='triangle-button'>⯈</span>
+              </div>
+              <div className='answer-time-bar'>
+                <div className='time-bar-bar'></div>
+                <div className='time-bar-circle'></div>
+                <div className='time-bar-info'>
+                  <div className='start'>00:00</div>
+                  <div className='finish'>00:48</div>
                 </div>
               </div>
             </div>
           </div>
-          <div className='answer-about'>{birdsData[this.state.category][0].description}</div>
         </div>
+        <div className='answer-about'>{birdsData[this.state.category][0].description}</div>
+      </div>
+    } else {
+      info =
+      <div className='information'>
+        <div className='lets-start'>Послушайте плеер и выберите название птицы, чей голос прозвучал...</div>
+      </div>
+    }
+    return (
+      <div className='answer'>
+        <div className='choice'>
+          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][0].name}</div>
+          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][1].name}</div>
+          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][2].name}</div>
+          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][3].name}</div>
+          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][4].name}</div>
+          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][5].name}</div>
+        </div>
+        {info}
       </div>
     );
   }
