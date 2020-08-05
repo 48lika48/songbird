@@ -57,7 +57,7 @@
 
 .answer-voice {
     width: 80%;
-    padding: 10px 40px 0 15px;
+    padding: 10px 40px 0 0;
 }
 
 .answer-name {
@@ -140,4 +140,59 @@
 .answer-about {
     font-size: 14px;
     padding: 0 20px;
+}
+
+@media screen and (max-width: 900px) {
+    .answer {
+        display: contents;
+    }
+    .choice {
+        width: 80%;
+        height: 293px;
+        margin: 20px 10% 10px 10%;
+    }
+    .information {
+        width: 80%;
+        height: 293px;
+        margin: 20px 10% 10px 10%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .information {
+        height: 500px;
+    }
+    .information-wrapper {
+        display: block;
+        height: 350px;
+        margin: 10px 10%;
+        background-color:  #303030;
+        border: none;
+        border-radius: 5px;
+    }
+    .answer-picture {
+        margin: 0 auto;
+    }
+    .answer-voice {
+        padding: 10px 20px 20px 15px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .information {
+        height: 530px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .information {
+        height: 550px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .information {
+        height: 580px;
+    }
 }

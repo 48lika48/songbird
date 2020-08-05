@@ -8,7 +8,8 @@ class Header extends React.Component {
     super(props);
 
     this.state = {
-      counter: 0
+      counter: 0,
+      category: 0
     };
   }
 

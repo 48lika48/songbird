@@ -35,3 +35,41 @@
 .active {
     background-color: #00BC8C;
 }
+
+@media screen and (max-width: 800px) {
+    .header {
+        height: 160px;
+    }
+    .category {
+        flex-wrap: wrap;
+        height: 60px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        padding: 10px 10px;
+    }
+    .category span {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 516px) {
+    .header {
+        height: 180px;
+    }
+    .category {
+        flex-wrap: wrap;
+        height: 80px;
+        padding: 10px 10px;  
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .logo {
+        width: 180px;
+        height: 40px;
+    }
+    .category span {
+        padding: 0;
+    }
+}
