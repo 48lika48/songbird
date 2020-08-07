@@ -14,6 +14,25 @@ class Question extends React.Component {
     };
   }
 
+  // componentDidMount = () => {
+  //   let birdsDataRandom = this.getShuffle(birdsData[this.state.category]);
+  //   console.log(birdsDataRandom);
+  //   return birdsDataRandom;
+  // };
+
+  // getShuffle = (arr) => {
+  //   let m = arr.length,
+  //     t,
+  //     i;
+  //   while (m) {
+  //     i = Math.floor(Math.random() * m--);
+  //     t = arr[m];
+  //     arr[m] = arr[i];
+  //     arr[i] = t;
+  //   }
+  //   return arr;
+  // };
+
   render() {
     return (
       <div className='question'>
