@@ -4,29 +4,22 @@ import logo from '../../assets/logo.svg';
 
 class Header extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      counter: 0,
-      category: 0
-    };
-  }
-
   render() {
+    let score = this.props.score;
+    let category = this.props.category;
     return (
       <div className='header'>
         <div className='logo-score'>
           <img className='logo' src={logo} alt='logo'/>
-          <div className='score'>Score: {this.state.counter}</div>
+          <div className='score'>Score: {score}</div>
         </div>
         <div className='category'>
-          <span>Разминка</span>
-          <span>Воробьиные</span>
-          <span>Лесные птицы</span>
-          <span>Певчие птицы</span>
-          <span>Хищные птицы</span>
-          <span>Морские птицы</span>
+          <span className={ category === 0 ? 'active' : null }>Разминка</span>
+          <span className={ category === 1 ? 'active' : null }>Воробьиные</span>
+          <span className={ category === 2 ? 'active' : null }>Лесные птицы</span>
+          <span className={ category === 3 ? 'active' : null }>Певчие птицы</span>
+          <span className={ category === 4 ? 'active' : null }>Хищные птицы</span>
+          <span className={ category === 5 ? 'active' : null }>Морские птицы</span>
         </div>
       </div>
     );

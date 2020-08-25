@@ -1,7 +1,6 @@
 import React from 'react';
 import './Question.css';
 import bird from '../../assets/bird.jpg';
-import birdsData from '../../constants/birdsData.js';
 
 class Question extends React.Component {
   
@@ -14,33 +13,15 @@ class Question extends React.Component {
     };
   }
 
-  // componentDidMount = () => {
-  //   let birdsDataRandom = this.getShuffle(birdsData[this.state.category]);
-  //   console.log(birdsDataRandom);
-  //   return birdsDataRandom;
-  // };
-
-  // getShuffle = (arr) => {
-  //   let m = arr.length,
-  //     t,
-  //     i;
-  //   while (m) {
-  //     i = Math.floor(Math.random() * m--);
-  //     t = arr[m];
-  //     arr[m] = arr[i];
-  //     arr[i] = t;
-  //   }
-  //   return arr;
-  // };
-
   render() {
+    let currentBird = this.props.currentBird;
     return (
       <div className='question'>
         <div className='question-picture'>
           <img className='question-bird' src={bird} alt='bird'/>
         </div>
         <div className='question-voice'>
-          <div className='question-name'>{birdsData[this.state.category][0].name}</div>
+          <div className='question-name'>{currentBird.name}</div>
           <div className='question-controls'>
             <div className='playback-button'>
               <span className='triangle-button'>⯈</span>

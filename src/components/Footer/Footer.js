@@ -1,12 +1,12 @@
 import React from 'react';
 import './Footer.css';
-// import logo from '../assets/logo.svg';
 
 class Footer extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <div className='footer'>
-        <div className='level'>Next Level</div>
+        <div className='level' onClick={this.props.nextCategory}>Next Level</div>
       </div>
     );
   }
