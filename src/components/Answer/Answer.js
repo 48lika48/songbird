@@ -1,6 +1,5 @@
 import React from 'react';
 import './Answer.css';
-// import bird from '../../assets/bird.jpg';
 import birdsData from '../../constants/birdsData.js';
 
 class Answer extends React.Component {
@@ -15,33 +14,11 @@ class Answer extends React.Component {
     };
   }
 
-  componentDidMount = () => {
-    let birdsDataRandom = this.getShuffle(birdsData[this.state.category]);
-    console.log(birdsDataRandom);
-    return birdsDataRandom;
-  };
-
-  getShuffle = (arr) => {
-    let m = arr.length,
-      t,
-      i;
-    while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = arr[m];
-      arr[m] = arr[i];
-      arr[i] = t;
-    }
-    return arr;
-  };
-
-  changeStateShowInfo = () => {
-    this.setState((state) => ({
-      showInfo: true
-    }));
-  };
-
   render() {
+    let birdsDataRandom = this.props.birdsDataRandom;
+    let changeStateShowInfo = this.props.changeStateShowInfo;
     let info;
+    console.log(this.props);
     if(this.state.showInfo === true) {
       info = 
       <div className='information'>
@@ -78,12 +55,13 @@ class Answer extends React.Component {
     return (
       <div className='answer'>
         <div className='choice'>
-          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][0].name}</div>
-          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][1].name}</div>
-          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][2].name}</div>
-          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][3].name}</div>
-          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][4].name}</div>
-          <div className='example' onClick={this.changeStateShowInfo}><span className='dots'>●</span>{birdsData[this.state.category][5].name}</div>
+        <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{1}</div>
+          {/* <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][0].name}</div>
+          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][1].name}</div>
+          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][2].name}</div>
+          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][3].name}</div>
+          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][4].name}</div>
+          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][5].name}</div> */}
         </div>
         {info}
       </div>

@@ -16,14 +16,17 @@ class App extends React.Component {
       category: 0,
       showInfo: false,
       currentBird: {},
-      birdsDataRandom: []
+      birdsDataRandom: [],
+      hiddenCurrentBird: ''
     };
   }
 
   nextCategory = () => {
-    this.setState ({
-      category: this.state.category + 1
-    });
+    if(this.state.category < 5) {
+      this.setState ({
+        category: this.state.category + 1
+      });
+    }
   }
 
   componentDidMount = () => {
@@ -33,10 +36,14 @@ class App extends React.Component {
   newRound = (category) => {
     let birdsDataRandom = this.getShuffle(birdsData[category]);
     let currentBird = birdsDataRandom[this.randomNumber(0, 5)];
+    console.log(birdsDataRandom);
+    console.log(birdsDataRandom[0].name);
     console.log(currentBird);
+    let hiddenCurrentBird = currentBird.name.replace(currentBird.name, '*****');
     this.setState ({
       birdsDataRandom: birdsDataRandom,
-      currentBird: currentBird
+      currentBird: currentBird,
+      hiddenCurrentBird: hiddenCurrentBird
     });
   }
 
@@ -67,8 +74,8 @@ class App extends React.Component {
     return (
       <div className="wrapper">
       < Header score={this.state.score} category={this.state.category}/>
-      < Question currentBird={this.state.currentBird}/>
-      < Answer />
+      < Question currentBird={this.state.currentBird} hiddenCurrentBird={this.state.hiddenCurrentBird}/>
+      < Answer birdsDataRandom={this.state.birdsDataRandom} changeStateShowInfo={this.changeStateShowInfo}/>
       < Footer nextCategory={this.nextCategory}/>
     </div>
     );
