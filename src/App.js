@@ -15,9 +15,12 @@ class App extends React.Component {
       score: 0,
       category: 0,
       showInfo: false,
+      currentNumber: null,
       currentBird: {},
       birdsDataRandom: [],
-      hiddenCurrentBird: ''
+      showCurrentBird: '',
+      hiddenCurrentBird: '',
+      chooseBird: '',
     };
   }
 
@@ -29,20 +32,24 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.newRound(0);
   };
 
   newRound = (category) => {
     let birdsDataRandom = this.getShuffle(birdsData[category]);
-    let currentBird = birdsDataRandom[this.randomNumber(0, 5)];
-    console.log(birdsDataRandom);
-    console.log(birdsDataRandom[0].name);
-    console.log(currentBird);
+    let currentNumber = this.randomNumber(0, 5);
+    let currentBird = birdsDataRandom[currentNumber];
+    let showCurrentBird = currentBird.name;
     let hiddenCurrentBird = currentBird.name.replace(currentBird.name, '*****');
+    console.log(birdsDataRandom);
+    console.log(currentBird);
+    console.log(showCurrentBird);
     this.setState ({
       birdsDataRandom: birdsDataRandom,
+      currentNumber: currentNumber,
       currentBird: currentBird,
+      showCurrentBird: showCurrentBird,
       hiddenCurrentBird: hiddenCurrentBird
     });
   }
@@ -64,18 +71,31 @@ class App extends React.Component {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  changeStateShowInfo = () => {
-    this.setState((state) => ({
+  showInfo = () => {
+    this.setState ({
       showInfo: true
-    }));
+    });
   };
+
+  chooseAnswer = (event) => {
+    let entireText = event.target.innerText;
+    let serialNumber = event.target.value;
+    let chooseBird = entireText.substr(1);
+    console.log(chooseBird);
+    this.setState ({
+      chooseBird: chooseBird,
+      
+    });
+    console.log(this.state.currentNumber);
+    console.log(serialNumber);
+  }
 
   render() {
     return (
       <div className="wrapper">
       < Header score={this.state.score} category={this.state.category}/>
       < Question currentBird={this.state.currentBird} hiddenCurrentBird={this.state.hiddenCurrentBird}/>
-      < Answer birdsDataRandom={this.state.birdsDataRandom} changeStateShowInfo={this.changeStateShowInfo}/>
+      < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.showInfo} chooseAnswer={this.chooseAnswer}/>
       < Footer nextCategory={this.nextCategory}/>
     </div>
     );

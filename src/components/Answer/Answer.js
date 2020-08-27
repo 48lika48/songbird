@@ -1,34 +1,23 @@
 import React from 'react';
 import './Answer.css';
-import birdsData from '../../constants/birdsData.js';
 
 class Answer extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      counter: 0,
-      category: 0,
-      showInfo: false
-    };
-  }
-
   render() {
     let birdsDataRandom = this.props.birdsDataRandom;
-    let changeStateShowInfo = this.props.changeStateShowInfo;
+    let chooseAnswer = this.props.chooseAnswer;
+    let showInfo = this.props.showInfo;
     let info;
-    console.log(this.props);
-    if(this.state.showInfo === true) {
+    if(showInfo === true) {
       info = 
       <div className='information'>
         <div className='information-wrapper'>
           <div className='answer-picture'>
-            <img className='answer-bird' src={birdsData[this.state.category][0].image} alt='bird'/>
+            {/* <img className='answer-bird' src={birdsData[this.state.category][0].image} alt='bird'/> */}
           </div>
           <div className='answer-voice'>
-            <div className='answer-name'>{birdsData[this.state.category][0].name}</div>
-            <div className='latin-name'>{birdsData[this.state.category][0].species}</div>
+            {/* <div className='answer-name'>{birdsData[this.state.category][0].name}</div> */}
+            {/* <div className='latin-name'>{birdsData[this.state.category][0].species}</div> */}
             <div className='answer-controls'>
               <div className='playback-button'>
                 <span className='triangle-button'>⯈</span>
@@ -44,7 +33,7 @@ class Answer extends React.Component {
             </div>
           </div>
         </div>
-        <div className='answer-about'>{birdsData[this.state.category][0].description}</div>
+        {/* <div className='answer-about'>{birdsData[this.state.category][0].description}</div> */}
       </div>
     } else {
       info =
@@ -55,13 +44,12 @@ class Answer extends React.Component {
     return (
       <div className='answer'>
         <div className='choice'>
-        <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{1}</div>
-          {/* <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][0].name}</div>
-          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][1].name}</div>
-          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][2].name}</div>
-          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][3].name}</div>
-          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][4].name}</div>
-          <div className='example' onClick={changeStateShowInfo}><span className='dots'>●</span>{birdsDataRandom[category][5].name}</div> */}
+          <div value={0} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[0].name}</div>
+          <div value={1} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[1].name}</div>
+          <div value={2} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[2].name}</div>
+          <div value={3} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[3].name}</div>
+          <div value={4} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[4].name}</div>
+          <div value={5} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[5].name}</div>
         </div>
         {info}
       </div>
