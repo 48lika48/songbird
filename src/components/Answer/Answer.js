@@ -1,11 +1,14 @@
 import React from 'react';
 import './Answer.css';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 class Answer extends React.Component {
 
   render() {
     let birdsDataRandom = this.props.birdsDataRandom;
     let chooseAnswer = this.props.chooseAnswer;
+    let serialNumber = this.props.serialNumber;
     let showInfo = this.props.showInfo;
     let info;
     if(showInfo === true) {
@@ -13,13 +16,21 @@ class Answer extends React.Component {
       <div className='information'>
         <div className='information-wrapper'>
           <div className='answer-picture'>
-            {/* <img className='answer-bird' src={birdsData[this.state.category][0].image} alt='bird'/> */}
+            <img className='answer-bird' src={birdsDataRandom[serialNumber].image} alt='bird'/>
           </div>
           <div className='answer-voice'>
-            {/* <div className='answer-name'>{birdsData[this.state.category][0].name}</div> */}
-            {/* <div className='latin-name'>{birdsData[this.state.category][0].species}</div> */}
+            <div className='answer-name'>{birdsDataRandom[serialNumber].name}</div>
+            <div className='latin-name'>{birdsDataRandom[serialNumber].species}</div>
             <div className='answer-controls'>
-              <div className='playback-button'>
+            <AudioPlayer
+              src={birdsDataRandom[serialNumber].audio}
+              customAdditionalControls={[]}
+              showJumpControls={false}
+              autoPlay={false}
+              autoPlayAfterSrcChange={false}
+              style={{backgroundColor: '#303030', boxShadow: 'none'}}
+            />
+              {/* <div className='playback-button'>
                 <span className='triangle-button'>⯈</span>
               </div>
               <div className='answer-time-bar'>
@@ -29,11 +40,11 @@ class Answer extends React.Component {
                   <div className='start'>00:00</div>
                   <div className='finish'>00:48</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        {/* <div className='answer-about'>{birdsData[this.state.category][0].description}</div> */}
+        <div className='answer-about'>{birdsDataRandom[serialNumber].description}</div>
       </div>
     } else {
       info =

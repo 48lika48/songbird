@@ -14,8 +14,10 @@ class App extends React.Component {
     this.state = {
       score: 0,
       category: 0,
+      nextLevel: false,
       showInfo: false,
       currentNumber: null,
+      serialNumber: null,
       currentBird: {},
       birdsDataRandom: [],
       showCurrentBird: '',
@@ -25,15 +27,19 @@ class App extends React.Component {
   }
 
   nextCategory = () => {
-    if(this.state.category < 5) {
-      this.setState ({
-        category: this.state.category + 1
-      });
+    if(this.state.nextLevel === true) {
+      if(this.state.category < 5) {
+        this.setState ({
+          nextLevel: false,
+          category: this.state.category + 1
+        }, () => this.newRound(this.state.category));
+      }
     }
   }
 
   componentWillMount = () => {
     this.newRound(0);
+    console.log(this.state.nextLevel);
   };
 
   newRound = (category) => {
@@ -41,10 +47,8 @@ class App extends React.Component {
     let currentNumber = this.randomNumber(0, 5);
     let currentBird = birdsDataRandom[currentNumber];
     let showCurrentBird = currentBird.name;
-    let hiddenCurrentBird = currentBird.name.replace(currentBird.name, '*****');
-    console.log(birdsDataRandom);
-    console.log(currentBird);
     console.log(showCurrentBird);
+    let hiddenCurrentBird = currentBird.name.replace(currentBird.name, '*****');
     this.setState ({
       birdsDataRandom: birdsDataRandom,
       currentNumber: currentNumber,
@@ -71,31 +75,31 @@ class App extends React.Component {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  showInfo = () => {
-    this.setState ({
-      showInfo: true
-    });
-  };
-
   chooseAnswer = (event) => {
     let entireText = event.target.innerText;
     let serialNumber = event.target.value;
     let chooseBird = entireText.substr(1);
-    console.log(chooseBird);
     this.setState ({
+      showInfo: true,
       chooseBird: chooseBird,
-      
+      serialNumber: serialNumber
     });
-    console.log(this.state.currentNumber);
-    console.log(serialNumber);
+    if(this.state.currentNumber === serialNumber) {
+      console.log('right');
+      this.setState ({
+        nextLevel: true
+      });
+    } else {
+ 
+    }
   }
 
   render() {
     return (
       <div className="wrapper">
       < Header score={this.state.score} category={this.state.category}/>
-      < Question currentBird={this.state.currentBird} hiddenCurrentBird={this.state.hiddenCurrentBird}/>
-      < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.showInfo} chooseAnswer={this.chooseAnswer}/>
+      < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber} showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird}/>
+      < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
       < Footer nextCategory={this.nextCategory}/>
     </div>
     );
