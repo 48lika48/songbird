@@ -43,14 +43,14 @@ class Answer extends React.Component {
     }
     return (
       <div className='answer'>
-        <div className='choice'>
-          <div value={0} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[0].name}</div>
-          <div value={1} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[1].name}</div>
-          <div value={2} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[2].name}</div>
-          <div value={3} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[3].name}</div>
-          <div value={4} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[4].name}</div>
-          <div value={5} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[5].name}</div>
-        </div>
+        <ul className='choice'>
+          <li value={0} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[0].name}</li>
+          <li value={1} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[1].name}</li>
+          <li value={2} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[2].name}</li>
+          <li value={3} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[3].name}</li>
+          <li value={4} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[4].name}</li>
+          <li value={5} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[5].name}</li>
+        </ul>
         {info}
       </div>
     );
