@@ -100,7 +100,7 @@ class App extends React.Component {
       < Header score={this.state.score} category={this.state.category}/>
       < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber} showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird}/>
       < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
-      < Footer nextCategory={this.nextCategory}/>
+      < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
     </div>
     );
   }

@@ -14,9 +14,9 @@
 }
 
 .example {
-    height: 38.5px;
+    height: 38.3px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 0.5px;
     padding: 5px 15px;
     cursor: pointer;
 }

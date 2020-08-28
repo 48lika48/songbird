@@ -4,11 +4,18 @@
 }
 
 .footer div {
-    background-color: #00BC8C;
+    border: 1px solid grey;
+    border-radius: 5px;
     height: 30px;
     text-align: center;
-    border: none;
-    border-radius: 5px;
     padding-top: 8px;
     cursor: pointer;
+}
+
+.green {
+    background-color: #00BC8C;
+}
+
+.grey {
+    background-color: #303030;
 }
