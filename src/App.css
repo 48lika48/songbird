@@ -10,3 +10,19 @@
   height: 100%;
   margin: 0 auto;
 }
+
+.rhap_container {
+  padding: 10px 0;
+}
+
+.rhap_time {
+  color: white;
+}
+
+.rhap_progress-indicator, .rhap_volume-indicator {
+  background-color: #008966;
+}
+
+.rhap_progress-filled, .rhap_volume-bar {
+  background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 100%);
+}

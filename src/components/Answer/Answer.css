@@ -6,7 +6,7 @@
 }
 
 .choice {
-    width: 49%;
+    width: 39%;
     background-color:  #303030;
     border: 1px solid #808080;
     border-radius: 5px;
@@ -38,7 +38,7 @@
 }
 
 .information {
-    width: 49%;
+    width: 59%;
     background-color:  #303030;
     border: 1px solid grey;
     border-radius: 5px;
@@ -72,79 +72,22 @@
 
 .answer-name {
     height: 30px;
-    font-size: 26px;
+    font-size: 25px;
     font-weight: bold;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #808080;
-    padding: 5px 0;
+    padding: 5px 0 10px 0;
 }
 
 .latin-name {
     height: 20px;
-    font-size: 16px;
+    font-size: 18px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #808080;
-    padding: 5px 0;
-}
-
-.answer-controls {
-    height: 50px;
-}
-
-.answer-controls, .playback-button {
-    display: flex;
-    align-items: center;
-}
-
-.answer-time-bar {
-    position: relative;
-    height: 4px;
-    flex: 1 1;
-    margin-top: 33px;
-}
-
-.playback-button {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #00bc8c;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 30px 20px 0 0;
-    cursor: pointer;
-}
-
-.triangle-button {
-    font-size: 30px;
-    font-weight: bold;
-    color: #00bc8c;
-}
-
-.time-bar-bar {
-    background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 0%, rgb(115, 115, 115) 0%, rgb(115, 115, 115) 100%);
-    height: 4px;
-}
-
-.time-bar-circle {
-    left: 0%;
-    background-color: grey;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    transform: translate(-50%,calc(-50% + 2px));
-    box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
-    cursor: pointer;
-}
-
-.time-bar-info {
-    margin-top: 8px;
-    font-size: 11px;
-    color: #d3d3d3;
-    display: flex;
-    justify-content: space-between;
+    padding: 5px 0 10px 0;
+    margin-bottom: 15px;
 }
 
 .answer-about {
@@ -152,7 +95,23 @@
     padding: 0 20px;
 }
 
-@media screen and (max-width: 900px) {
+.rhap_container {
+    padding: 10px 0;
+}
+
+.rhap_time {
+    color: white;
+}
+
+.rhap_progress-indicator, .rhap_volume-indicator {
+    background-color: #008966;
+}
+
+.rhap_progress-filled, .rhap_volume-bar {
+    background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 100%);
+}
+
+@media screen and (max-width: 1000px) {
     .answer {
         display: contents;
     }

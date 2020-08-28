@@ -21,7 +21,6 @@ class Answer extends React.Component {
           <div className='answer-voice'>
             <div className='answer-name'>{birdsDataRandom[serialNumber].name}</div>
             <div className='latin-name'>{birdsDataRandom[serialNumber].species}</div>
-            <div className='answer-controls'>
             <AudioPlayer
               src={birdsDataRandom[serialNumber].audio}
               customAdditionalControls={[]}
@@ -30,18 +29,6 @@ class Answer extends React.Component {
               autoPlayAfterSrcChange={false}
               style={{backgroundColor: '#303030', boxShadow: 'none'}}
             />
-              {/* <div className='playback-button'>
-                <span className='triangle-button'>⯈</span>
-              </div>
-              <div className='answer-time-bar'>
-                <div className='time-bar-bar'></div>
-                <div className='time-bar-circle'></div>
-                <div className='time-bar-info'>
-                  <div className='start'>00:00</div>
-                  <div className='finish'>00:48</div>
-                </div>
-              </div> */}
-            </div>
           </div>
         </div>
         <div className='answer-about'>{birdsDataRandom[serialNumber].description}</div>
@@ -49,7 +36,7 @@ class Answer extends React.Component {
     } else {
       info =
       <div className='information'>
-        <div className='lets-start'>Послушайте плеер и выберите название птицы, чей голос прозвучал...</div>
+        <div className='lets-start'>Послушайте плеер и выберите птицу из списка.</div>
       </div>
     }
     return (
