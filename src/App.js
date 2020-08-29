@@ -13,7 +13,9 @@ class App extends React.Component {
 
     this.state = {
       score: 0,
+      counter: 5,
       category: 0,
+      // dots: 'grey',
       nextLevel: false,
       showInfo: false,
       currentNumber: null,
@@ -54,7 +56,8 @@ class App extends React.Component {
       currentNumber: currentNumber,
       currentBird: currentBird,
       showCurrentBird: showCurrentBird,
-      hiddenCurrentBird: hiddenCurrentBird
+      hiddenCurrentBird: hiddenCurrentBird,
+      counter: 5
     });
   }
 
@@ -84,13 +87,18 @@ class App extends React.Component {
       chooseBird: chooseBird,
       serialNumber: serialNumber
     });
-    if(this.state.currentNumber === serialNumber) {
+    if(this.state.currentNumber === serialNumber && this.state.counter > -1) {
       console.log('right');
       this.setState ({
+        score: this.state.score + this.state.counter,
+        // dots: 'green',
+        counter: 0,
         nextLevel: true
       });
     } else {
- 
+      this.setState ({
+        counter: this.state.counter - 1
+      });
     }
   }
 
@@ -98,8 +106,10 @@ class App extends React.Component {
     return (
       <div className="wrapper">
       < Header score={this.state.score} category={this.state.category}/>
-      < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber} showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird}/>
-      < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
+      < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber} showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
+      < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
+      // currentNumber={this.state.currentNumber} 
+      serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
       < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
     </div>
     );

@@ -3,6 +3,7 @@ import './Question.css';
 import bird from '../../assets/bird.jpg';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+// import { getNodeText } from '@testing-library/react';
 
 class Question extends React.Component {
   
@@ -12,6 +13,7 @@ class Question extends React.Component {
     let currentNumber = this.props.currentNumber;
     let showCurrentBird = this.props.showCurrentBird;
     let hiddenCurrentBird = this.props.hiddenCurrentBird;
+    let nextLevel = this.props.nextLevel;
     let showImage;
     let showName;
     if(currentNumber === serialNumber) {
@@ -19,6 +21,11 @@ class Question extends React.Component {
       <img className='question-bird' src={currentBird.image} alt='bird'/>
       showName = 
       <div className='question-name'>{showCurrentBird}</div>
+    } else if (nextLevel === false){
+      showImage =
+      <img className='question-bird' src={bird} alt='bird'/>
+      showName = 
+      <div className='question-name'>{hiddenCurrentBird}</div>
     } else {
       showImage =
       <img className='question-bird' src={bird} alt='bird'/>

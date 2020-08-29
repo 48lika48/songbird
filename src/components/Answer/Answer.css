@@ -111,6 +111,18 @@
     background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 100%);
 }
 
+.red {
+    background-color: #bc0038;
+}
+
+.green {
+    background-color: #00BC8C;
+}
+
+.grey {
+    background-color: #303030;
+}
+
 @media screen and (max-width: 1000px) {
     .answer {
         display: contents;

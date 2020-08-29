@@ -9,6 +9,7 @@ class Answer extends React.Component {
     let birdsDataRandom = this.props.birdsDataRandom;
     let chooseAnswer = this.props.chooseAnswer;
     let serialNumber = this.props.serialNumber;
+    // let currentNumber = this.props.currentNumber;
     let showInfo = this.props.showInfo;
     let info;
     if(showInfo === true) {
@@ -42,7 +43,9 @@ class Answer extends React.Component {
     return (
       <div className='answer'>
         <ul className='choice'>
-          <li value={0} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[0].name}</li>
+          <li value={0} className='example' onClick={chooseAnswer}><span className='dots'
+          // {currentNumber === serialNumber ? 'green' : 'red' }
+          >●</span>{birdsDataRandom[0].name}</li>
           <li value={1} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[1].name}</li>
           <li value={2} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[2].name}</li>
           <li value={3} className='example' onClick={chooseAnswer}><span className='dots'>●</span>{birdsDataRandom[3].name}</li>
