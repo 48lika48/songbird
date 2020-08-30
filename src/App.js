@@ -25,6 +25,7 @@ class App extends React.Component {
       showCurrentBird: '',
       hiddenCurrentBird: '',
       chooseBird: '',
+      gameEnd: false
     };
   }
 
@@ -35,6 +36,10 @@ class App extends React.Component {
           nextLevel: false,
           category: this.state.category + 1
         }, () => this.newRound(this.state.category));
+      } else {
+        this.setState ({
+          gameEnd: true
+        });
       }
     }
   }
@@ -102,15 +107,59 @@ class App extends React.Component {
     }
   }
 
+  gameStart = () => {
+    this.setState ({
+      score: 0,
+      counter: 5,
+      category: 0,
+      // dots: 'grey',
+      nextLevel: false,
+      showInfo: false,
+      currentNumber: null,
+      serialNumber: null,
+      currentBird: {},
+      birdsDataRandom: [],
+      showCurrentBird: '',
+      hiddenCurrentBird: '',
+      chooseBird: '',
+      gameEnd: false
+    }, () => this.newRound(0));
+  }
+
   render() {
+    // let score = this.state.score;
+    // let gameEnd = this.state.gameEnd;
+    // let notification;
+    // if(gameEnd === false) {
+    //   notification =
+    //   <div>
+    //     < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber}   showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
+    //     < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
+    //     currentNumber={this.state.currentNumber} 
+    //     serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
+    //     < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
+    //   </div>
+    // } else if(gameEnd === true) {
+    //   notification =
+    //   <div>
+    //     <h2>Поздравляем!</h2>
+    //     <p>Вы прошли викторину и набрали {score} из 30 возможных баллов</p>
+    //     <div onClick={this.gameStart}>Попробовать ещё раз!</div>
+    //   </div>
+    // } else if(score === 30) {
+    //   notification =
+    //   <div onClick={this.gameStart}>Начык-чырыкано!</div>
+    // }
+
     return (
       <div className="wrapper">
       < Header score={this.state.score} category={this.state.category}/>
-      < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber} showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
-      < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
-      // currentNumber={this.state.currentNumber} 
-      serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
-      < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
+      {/* {notification} */}
+      < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber}   showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
+        < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
+        // currentNumber={this.state.currentNumber} 
+        serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
+        < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
     </div>
     );
   }

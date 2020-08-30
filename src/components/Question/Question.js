@@ -16,7 +16,7 @@ class Question extends React.Component {
     let nextLevel = this.props.nextLevel;
     let showImage;
     let showName;
-    if(currentNumber === serialNumber) {
+    if(currentNumber === serialNumber || nextLevel === true) {
       showImage =
       <img className='question-bird' src={currentBird.image} alt='bird'/>
       showName = 
