@@ -35,6 +35,7 @@ class App extends React.Component {
     if(this.state.nextLevel === true) {
       if(this.state.category < 5) {
         this.setState ({
+          showInfo: false,
           nextLevel: false,
           category: this.state.category + 1
         }, () => this.newRound(this.state.category));
