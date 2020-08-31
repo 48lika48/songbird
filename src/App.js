@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import yes from './assets/yes.mp3';
+import no from './assets/no.mp3';
 import Header from './components/Header/Header';
 import Question from './components/Question/Question';
 import Answer from './components/Answer/Answer';
@@ -83,6 +85,19 @@ class App extends React.Component {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  playAudio = (audioSrc) => {
+    let audio = null;
+      try {
+        if (audio && audio.played) {
+          audio.pause();
+        }
+        audio = new Audio(audioSrc);
+        audio.play().catch((e) => console.log(e.message));
+      } catch (e) {
+        console.log(e.message);
+      }
+  }
+
   chooseAnswer = (event) => {
     let entireText = event.target.innerText;
     let serialNumber = event.target.value;
@@ -94,13 +109,23 @@ class App extends React.Component {
     });
     if(this.state.currentNumber === serialNumber && this.state.counter > -1) {
       console.log('right');
+      this.playAudio(yes);
       this.setState ({
         score: this.state.score + this.state.counter,
         // dots: 'green',
         counter: 0,
         nextLevel: true
       });
+    } else if(this.state.currentNumber === serialNumber) {
+      console.log('right');
+      this.playAudio(yes);
+      this.setState ({
+        // dots: 'green',
+        counter: 0,
+        nextLevel: true
+      });
     } else {
+      this.playAudio(no);
       this.setState ({
         counter: this.state.counter - 1
       });
