@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-color: #222222;
+  color: white;
+  width: 100vw;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.rhap_container {
+  padding: 10px 0;
+}
+
+.rhap_time {
+  color: white;
+}
+
+.rhap_progress-indicator, .rhap_volume-indicator {
+  background-color: #008966;
+}
+
+.rhap_progress-filled, .rhap_volume-bar {
+  background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 100%);
+}
+
+.notFull h2 {
+  background-color:  #303030;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.notFull p {
+  background-color:  #303030;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+
+.notFull div {
+  background-color: #00BC8C;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+  text-align: center;
+  padding-top: 8px;
+  cursor: pointer;
+}
+
+.chick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full h2 {
+  background-color:  #303030;
+  color: #00BC8C;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.chick img {
+  width: 609px;
+  height: 346px;
+  margin: 10px 0 23px 0;
+}
+
+@media screen and (max-width: 760px) {
+  .chick img {
+    width: 500px;
+    height: 300px;
+    margin: 10px 0 23px 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .chick img {
+    width: 400px;
+    height: 250px;
+    margin: 10px 0 23px 0;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .chick img {
+    width: 300px;
+    height: 200px;
+    margin: 10px 0 23px 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .notFull h2 {
+    font-size: 30px;
+  }
+  .notFull p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .chick img {
+    width: 255px;
+    height: 170px;
+    margin: 10px 0 23px 0;
+  }
+}
