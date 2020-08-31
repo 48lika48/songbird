@@ -92,7 +92,8 @@ li span {
 
 .answer-about {
     font-size: 14px;
-    padding: 0 20px;
+    text-align: justify;
+    padding: 0 20px 5px 20px;
 }
 
 .rhap_container {
@@ -146,9 +147,12 @@ li span {
         height: 293px;
         margin: 20px 10% 10px 10%;
     }
+    .answer-about {
+        padding: 5px 25px;
+    }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 630px) {
     .information {
         height: 500px;
     }
@@ -184,5 +188,12 @@ li span {
 @media screen and (max-width: 350px) {
     .information {
         height: 580px;
+    }
+    .answer-name {
+        font-size: 22px;
+    }
+    .latin-name {
+        padding-top: 10px;
+        font-size: 14px;
     }
 }

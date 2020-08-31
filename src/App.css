@@ -26,3 +26,52 @@
 .rhap_progress-filled, .rhap_volume-bar {
   background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 100%);
 }
+
+.notFull h2 {
+  background-color:  #303030;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.notFull p {
+  background-color:  #303030;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px 0;
+  margin-bottom: 50px;
+}
+
+.notFull div {
+  background-color: #00BC8C;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 30px;
+  text-align: center;
+  padding-top: 8px;
+  cursor: pointer;
+}
+
+.full h2 {
+  background-color:  #303030;
+  color: #00BC8C;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.full img {
+  margin: 10px 0 23px 27.5%;
+}
+
+@media screen and (max-width: 400px) {
+  .notFull h2 {
+    font-size: 30px;
+  }
+  .notFull p {
+    font-size: 20px;
+  }
+}

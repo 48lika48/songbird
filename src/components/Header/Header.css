@@ -28,7 +28,8 @@
 }
 
 .category span {
-    padding-top: 8px;
+    padding: 0 8px;
+    margin: 8px 0;
     cursor: pointer;
 }
 
@@ -36,13 +37,13 @@
     background-color: #00BC8C;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 880px) {
     .header {
-        height: 160px;
+        height: 175px;
     }
     .category {
         flex-wrap: wrap;
-        height: 60px;
+        height: 75px;
         border: none;
         border-radius: 5px;
         margin-top: 15px;
@@ -55,11 +56,11 @@
 
 @media screen and (max-width: 516px) {
     .header {
-        height: 180px;
+        height: 220px;
     }
     .category {
         flex-wrap: wrap;
-        height: 80px;
+        height: 120px;
         padding: 10px 10px;  
     }
 }

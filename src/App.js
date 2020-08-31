@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import yes from './assets/yes.mp3';
 import no from './assets/no.mp3';
+import chick from './assets/chick.JPG';
 import Header from './components/Header/Header';
 import Question from './components/Question/Question';
 import Answer from './components/Answer/Answer';
@@ -67,6 +68,7 @@ class App extends React.Component {
       hiddenCurrentBird: hiddenCurrentBird,
       counter: 5
     });
+    console.log(showCurrentBird);
   }
 
   getShuffle = (arr) => {
@@ -167,14 +169,17 @@ class App extends React.Component {
       </div>
     } else if(gameEnd === true && score < 30) {
       notification =
-      <div>
+      <div className="notFull">
         <h2>Поздравляем!</h2>
         <p>Вы прошли викторину и набрали {score} из 30 возможных баллов</p>
         <div onClick={this.gameStart}>Попробовать ещё раз!</div>
       </div>
     } else {
       notification =
-      <div onClick={this.gameStart}>Начык-чырыкано!</div>
+      <div className="full">
+        <img src={chick} alt='чык-чырык'/>
+        <h2>Начык-чырыкано!</h2>
+      </div>
     }
 
     return (
