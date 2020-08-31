@@ -31,7 +31,7 @@
     border-top-color: #808080;
 }
 
-.dots {
+li span {
     font-size: 24px;
     color: #808080;
     margin-right: 10px;
@@ -111,8 +111,17 @@
     background: linear-gradient(to right, rgb(0, 188, 140) 0%, rgb(61, 133, 140) 100%);
 }
 
-.red {
-    background-color: #bc0038;
+
+.red-dot {
+    color: #bc0038;
+}
+
+.green-dot {
+    color: #00BC8C;
+}
+
+.grey-dot {
+    color: #303030;
 }
 
 .green {

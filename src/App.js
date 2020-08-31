@@ -17,8 +17,8 @@ class App extends React.Component {
       score: 0,
       counter: 5,
       category: 0,
-      // dots: 'grey',
       nextLevel: false,
+      roundClear: false,
       showInfo: false,
       currentNumber: null,
       serialNumber: null,
@@ -37,6 +37,7 @@ class App extends React.Component {
         this.setState ({
           showInfo: false,
           nextLevel: false,
+          roundClear: true,
           category: this.state.category + 1
         }, () => this.newRound(this.state.category));
       } else {
@@ -56,9 +57,9 @@ class App extends React.Component {
     let currentNumber = this.randomNumber(0, 5);
     let currentBird = birdsDataRandom[currentNumber];
     let showCurrentBird = currentBird.name;
-    console.log(showCurrentBird);
     let hiddenCurrentBird = currentBird.name.replace(currentBird.name, '*****');
     this.setState ({
+      roundClear: false,
       birdsDataRandom: birdsDataRandom,
       currentNumber: currentNumber,
       currentBird: currentBird,
@@ -87,15 +88,15 @@ class App extends React.Component {
 
   playAudio = (audioSrc) => {
     let audio = null;
-      try {
-        if (audio && audio.played) {
-          audio.pause();
-        }
-        audio = new Audio(audioSrc);
-        audio.play().catch((e) => console.log(e.message));
-      } catch (e) {
-        console.log(e.message);
+    try {
+      if (audio && audio.played) {
+        audio.pause();
       }
+      audio = new Audio(audioSrc);
+      audio.play().catch((e) => console.log(e.message));
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 
   chooseAnswer = (event) => {
@@ -108,21 +109,23 @@ class App extends React.Component {
       serialNumber: serialNumber
     });
     if(this.state.currentNumber === serialNumber && this.state.counter > -1) {
+      event.target.firstChild.className = 'green-dot';
       this.playAudio(yes);
       this.setState ({
         score: this.state.score + this.state.counter,
-        // dots: 'green',
         counter: 0,
         nextLevel: true
       });
+      
     } else if(this.state.currentNumber === serialNumber) {
+      event.target.firstChild.className = 'green-dot';
       this.playAudio(yes);
       this.setState ({
-        // dots: 'green',
         counter: 0,
         nextLevel: true
       });
     } else {
+      event.target.firstChild.className = 'red-dot';
       this.playAudio(no);
       this.setState ({
         counter: this.state.counter - 1
@@ -135,7 +138,6 @@ class App extends React.Component {
       score: 0,
       counter: 5,
       category: 0,
-      // dots: 'grey',
       nextLevel: false,
       showInfo: false,
       currentNumber: null,
@@ -159,7 +161,7 @@ class App extends React.Component {
       <div>
         < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber}   showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
         < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
-        currentNumber={this.state.currentNumber} 
+        roundClear={this.state.roundClear}
         serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
         < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
       </div>

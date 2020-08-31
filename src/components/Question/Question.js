@@ -20,6 +20,11 @@ class Question extends React.Component {
       <img className='question-bird' src={currentBird.image} alt='bird'/>
       showName = 
       <div className='question-name'>{showCurrentBird}</div>
+    } else if (nextLevel === false){
+      showImage =
+      <img className='question-bird' src={bird} alt='bird'/>
+      showName = 
+      <div className='question-name'>{hiddenCurrentBird}</div>
     } else {
       showImage =
       <img className='question-bird' src={bird} alt='bird'/>
@@ -37,7 +42,7 @@ class Question extends React.Component {
             src={currentBird.audio}
             customAdditionalControls={[]}
             showJumpControls={false}
-            autoPlay={true}
+            autoPlay={false}
             style={{backgroundColor: '#303030', boxShadow: 'none'}}
           />
         </div>
