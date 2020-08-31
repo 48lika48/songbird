@@ -177,8 +177,10 @@ class App extends React.Component {
     } else {
       notification =
       <div className="full">
-        <img src={chick} alt='чык-чырык'/>
-        <h2>Начык-чырыкано!</h2>
+        <div className="chick">
+          <img src={chick} alt='чык-чырык'/>
+        </div>
+        <h2 onClick={this.gameStart}>Начык-чырыкано!</h2>
       </div>
     }
 

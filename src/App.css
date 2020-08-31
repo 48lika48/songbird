@@ -54,6 +54,12 @@
   cursor: pointer;
 }
 
+.chick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .full h2 {
   background-color:  #303030;
   color: #00BC8C;
@@ -61,10 +67,37 @@
   font-size: 50px;
   font-weight: bold;
   padding: 20px 0;
+  cursor: pointer;
 }
 
-.full img {
-  margin: 10px 0 23px 27.5%;
+.chick img {
+  width: 609px;
+  height: 346px;
+  margin: 10px 0 23px 0;
+}
+
+@media screen and (max-width: 760px) {
+  .chick img {
+    width: 500px;
+    height: 300px;
+    margin: 10px 0 23px 0;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .chick img {
+    width: 400px;
+    height: 250px;
+    margin: 10px 0 23px 0;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .chick img {
+    width: 300px;
+    height: 200px;
+    margin: 10px 0 23px 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -73,5 +106,13 @@
   }
   .notFull p {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .chick img {
+    width: 255px;
+    height: 170px;
+    margin: 10px 0 23px 0;
   }
 }
