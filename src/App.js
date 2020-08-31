@@ -18,6 +18,7 @@ class App extends React.Component {
       score: 0,
       counter: 5,
       category: 0,
+      active: true,
       nextLevel: false,
       roundClear: false,
       showInfo: false,
@@ -39,6 +40,7 @@ class App extends React.Component {
           showInfo: false,
           nextLevel: false,
           roundClear: true,
+          active: true,
           category: this.state.category + 1
         }, () => this.newRound(this.state.category));
       } else {
@@ -110,28 +112,31 @@ class App extends React.Component {
       chooseBird: chooseBird,
       serialNumber: serialNumber
     });
-    if(this.state.currentNumber === serialNumber && this.state.counter > -1) {
-      event.target.firstChild.className = 'green-dot';
-      this.playAudio(yes);
-      this.setState ({
-        score: this.state.score + this.state.counter,
-        counter: 0,
-        nextLevel: true
-      });
-      
-    } else if(this.state.currentNumber === serialNumber) {
-      event.target.firstChild.className = 'green-dot';
-      this.playAudio(yes);
-      this.setState ({
-        counter: 0,
-        nextLevel: true
-      });
-    } else {
-      event.target.firstChild.className = 'red-dot';
-      this.playAudio(no);
-      this.setState ({
-        counter: this.state.counter - 1
-      });
+    if(this.state.active === true) {
+      if(this.state.currentNumber === serialNumber && this.state.counter > -1) {
+        event.target.firstChild.className = 'green-dot';
+        this.playAudio(yes);
+        this.setState ({
+          score: this.state.score + this.state.counter,
+          active: false,
+          counter: 0,
+          nextLevel: true
+        });
+      } else if(this.state.currentNumber === serialNumber) {
+        event.target.firstChild.className = 'green-dot';
+        this.playAudio(yes);
+        this.setState ({
+          counter: 0,
+          active: false,
+          nextLevel: true
+        });
+      } else {
+        event.target.firstChild.className = 'red-dot';
+        this.playAudio(no);
+        this.setState ({
+          counter: this.state.counter - 1
+        });
+      }
     }
   }
 
@@ -140,6 +145,7 @@ class App extends React.Component {
       score: 0,
       counter: 5,
       category: 0,
+      active: true,
       nextLevel: false,
       showInfo: false,
       currentNumber: null,
