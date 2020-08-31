@@ -49,7 +49,6 @@ class App extends React.Component {
 
   componentWillMount = () => {
     this.newRound(0);
-    console.log(this.state.nextLevel);
   };
 
   newRound = (category) => {
@@ -109,7 +108,6 @@ class App extends React.Component {
       serialNumber: serialNumber
     });
     if(this.state.currentNumber === serialNumber && this.state.counter > -1) {
-      console.log('right');
       this.playAudio(yes);
       this.setState ({
         score: this.state.score + this.state.counter,
@@ -118,7 +116,6 @@ class App extends React.Component {
         nextLevel: true
       });
     } else if(this.state.currentNumber === serialNumber) {
-      console.log('right');
       this.playAudio(yes);
       this.setState ({
         // dots: 'green',
@@ -149,43 +146,39 @@ class App extends React.Component {
       hiddenCurrentBird: '',
       chooseBird: '',
       gameEnd: false
-    }, () => this.newRound(0));
+    });
+    this.newRound(0);
   }
 
   render() {
-    // let score = this.state.score;
-    // let gameEnd = this.state.gameEnd;
-    // let notification;
-    // if(gameEnd === false) {
-    //   notification =
-    //   <div>
-    //     < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber}   showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
-    //     < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
-    //     currentNumber={this.state.currentNumber} 
-    //     serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
-    //     < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
-    //   </div>
-    // } else if(gameEnd === true) {
-    //   notification =
-    //   <div>
-    //     <h2>Поздравляем!</h2>
-    //     <p>Вы прошли викторину и набрали {score} из 30 возможных баллов</p>
-    //     <div onClick={this.gameStart}>Попробовать ещё раз!</div>
-    //   </div>
-    // } else if(score === 30) {
-    //   notification =
-    //   <div onClick={this.gameStart}>Начык-чырыкано!</div>
-    // }
+    let score = this.state.score;
+    let gameEnd = this.state.gameEnd;
+    let notification;
+    if(gameEnd === false) {
+      notification =
+      <div>
+        < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber}   showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
+        < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
+        currentNumber={this.state.currentNumber} 
+        serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
+        < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
+      </div>
+    } else if(gameEnd === true && score < 30) {
+      notification =
+      <div>
+        <h2>Поздравляем!</h2>
+        <p>Вы прошли викторину и набрали {score} из 30 возможных баллов</p>
+        <div onClick={this.gameStart}>Попробовать ещё раз!</div>
+      </div>
+    } else {
+      notification =
+      <div onClick={this.gameStart}>Начык-чырыкано!</div>
+    }
 
     return (
       <div className="wrapper">
       < Header score={this.state.score} category={this.state.category}/>
-      {/* {notification} */}
-      < Question currentBird={this.state.currentBird} currentNumber={this.state.currentNumber} serialNumber={this.state.serialNumber}   showCurrentBird={this.state.showCurrentBird} hiddenCurrentBird={this.state.hiddenCurrentBird} nextLevel={this.state.nextLevel}/>
-        < Answer birdsDataRandom={this.state.birdsDataRandom} showInfo={this.state.showInfo} 
-        // currentNumber={this.state.currentNumber} 
-        serialNumber={this.state.serialNumber} chooseAnswer={this.chooseAnswer}/>
-        < Footer nextCategory={this.nextCategory} nextLevel={this.state.nextLevel}/>
+      {notification}
     </div>
     );
   }

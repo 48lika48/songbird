@@ -9,7 +9,6 @@ class Answer extends React.Component {
     let birdsDataRandom = this.props.birdsDataRandom;
     let chooseAnswer = this.props.chooseAnswer;
     let serialNumber = this.props.serialNumber;
-    // let currentNumber = this.props.currentNumber;
     let showInfo = this.props.showInfo;
     let info;
     if(showInfo === true) {
